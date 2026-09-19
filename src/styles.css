@@ -1,0 +1,233 @@
+/* =========================
+   GENERAL
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+  overflow-x: hidden;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+  padding: 20px 40px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+nav button {
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  background: transparent;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+nav button:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+nav button:active {
+  transform: scale(0.94);
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+#content {
+  min-height: calc(100vh - 80px);
+  padding: 70px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+/* =========================
+   HOME / CONTENT CONTAINER
+========================= */
+
+#content > div {
+  width: min(900px, 100%);
+  padding: 45px;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+
+  animation: pageEnter 0.8s ease forwards;
+}
+
+
+/* =========================
+   HEADING
+========================= */
+
+#content h1 {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  margin-bottom: 20px;
+  letter-spacing: -2px;
+
+  background: linear-gradient(90deg, #fbbf24, #f97316);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: titleEnter 0.8s ease forwards;
+}
+
+
+/* =========================
+   PARAGRAPH
+========================= */
+
+#content p {
+  max-width: 650px;
+  margin: 20px auto;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #cbd5e1;
+
+  animation: textEnter 1s ease forwards;
+}
+
+
+/* =========================
+   FOOD IMAGE
+========================= */
+
+#content img {
+  width: min(600px, 100%);
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  margin: 25px 0;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+#content img:hover {
+  transform: scale(1.03) translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+}
+
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes titleEnter {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes textEnter {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+  header {
+    padding: 15px;
+  }
+
+  nav {
+    gap: 5px;
+  }
+
+  nav button {
+    padding: 10px 15px;
+    font-size: 14px;
+  }
+
+  #content {
+    padding: 40px 15px;
+  }
+
+  #content > div {
+    padding: 30px 20px;
+    border-radius: 20px;
+  }
+
+  #content h1 {
+    font-size: 2.7rem;
+  }
+
+  #content p {
+    font-size: 1rem;
+  }
+}
